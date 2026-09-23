@@ -4,7 +4,7 @@ metadata:
   name: guestbook-ui
   namespace: argo-app
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -19,3 +19,4 @@ spec:
           name: guestbook-ui
           ports:
             - containerPort: 80
+# this is very well
