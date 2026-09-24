@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook-ui
-  namespace: argo-app
+  namespace: argo-app-2
 
 spec:
   revisionHistoryLimit: 3
