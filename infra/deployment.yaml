@@ -3,20 +3,31 @@ kind: Deployment
 metadata:
   name: guestbook-ui
   namespace: argo-app
+
 spec:
-  replicas: 2
   revisionHistoryLimit: 3
+
   selector:
     matchLabels:
       app: guestbook-ui
+
   template:
     metadata:
       labels:
         app: guestbook-ui
+
     spec:
       containers:
-        - image: gcr.io/google-samples/gb-frontend:v5
-          name: guestbook-ui
+        - name: guestbook-ui
+          image: gcr.io/google-samples/gb-frontend:v5
+
           ports:
             - containerPort: 80
-# this is very well
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
